@@ -3,6 +3,8 @@ package com.mumu.service;
 import com.mumu.entity.ConferenceRooms;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ConferenceRoomsService extends IService<ConferenceRooms> {
 
+    List<ConferenceRooms> selectList(ConferenceRooms Room);
 }

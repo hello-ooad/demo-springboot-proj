@@ -15,8 +15,5 @@ import java.util.List;
  * @author mumu
  * @since 2023-09-22
  */
-@Repository
 public interface UserMapper extends BaseMapper<User> {
-    List<User> selectList();
-
 }

@@ -17,4 +17,8 @@ import java.util.List;
 public interface UserService extends IService<User> {
 
     List<User> selectList();
+
+    boolean isusernameExists(String userName);
+
+    boolean isusernameExists(String userName, String password);
 }

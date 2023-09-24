@@ -2,6 +2,7 @@ package com.mumu.mapper;
 
 import com.mumu.entity.ConferenceRooms;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>

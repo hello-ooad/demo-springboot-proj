@@ -1,10 +1,14 @@
 package com.mumu.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+
+import java.sql.Time;
 import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalTime;
 import java.io.Serializable;
+import java.sql.Date;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -39,11 +43,11 @@ public class ConferenceRooms implements Serializable {
 
     private String location;
 
-    private LocalDate date;
+    private Date date;
 
-    private LocalTime startTime;
+    private Time startTime;
 
-    private LocalTime endTime;
+    private Time endTime;
 
     private String maxDuration;
 

@@ -30,16 +30,23 @@ public class UserController {
     UserService service;
 
     @RequestMapping("/list")
-    public String full_list() throws IOException {
-        List<User> userList=service.selectList();
-
-        return JSON.toJSONString(userList);
+    public String full_list() {
+        return JSON.toJSONString(service.selectList());
     }
 
     @PostMapping("/new")
     public boolean add_user(User user){
-        service.saveOrUpdate(user);
-        return true;
+        return service.saveOrUpdate(user);
+    }
+    @PostMapping("/signin")
+    public String login(User user){
+        if(!service.isusernameExists(user.getUserName())){
+            return "用户名不存在";
+        }else if(!service.isusernameExists(user.getUserName(),user.getUserPassword())){
+            return "用户名或密码错误";
+        }else{
+            return "success!";
+        }
     }
 }
 
