@@ -28,9 +28,17 @@ public class ConferenceRoomsController {
     public String list(ConferenceRooms room) {
         return JSON.toJSONString(service.selectList(room));
     }
+    @RequestMapping("/all")
+    public String all() {
+        return list(new ConferenceRooms());
+    }
     @PostMapping("/new")
     public boolean add_user(ConferenceRooms room){
         return service.saveOrUpdate(room);
+    }
+    @RequestMapping("/delete")
+    public int delete(ConferenceRooms room){
+        return service.deleteRoom(room);
     }
 }
 

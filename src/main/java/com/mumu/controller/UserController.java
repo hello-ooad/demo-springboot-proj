@@ -9,12 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.List;
-
 /**
  * <p>
  * 前端控制器
@@ -35,16 +29,26 @@ public class UserController {
     }
 
     @PostMapping("/new")
-    public boolean add_user(User user){
+    public boolean add_user(User user) {
         return service.saveOrUpdate(user);
     }
+
     @PostMapping("/signin")
-    public String login(User user){
-        if(!service.isusernameExists(user.getUserName())){
+    public String login(User user) {
+        if (!service.isusernameExists(user.getUserName())) {
             return "用户名不存在";
-        }else if(!service.isusernameExists(user.getUserName(),user.getUserPassword())){
+        } else if (!service.isusernameExists(user.getUserName(), user.getUserPassword())) {
             return "用户名或密码错误";
-        }else{
+        } else {
+            return "success!";
+        }
+    }
+
+    @PostMapping("/username")
+    public String name(User user) {
+        if (!service.isusernameExists(user.getUserName())) {
+            return "用户名不存在";
+        } else {
             return "success!";
         }
     }

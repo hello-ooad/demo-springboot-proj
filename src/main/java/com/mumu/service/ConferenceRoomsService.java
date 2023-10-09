@@ -16,4 +16,6 @@ import java.util.List;
 public interface ConferenceRoomsService extends IService<ConferenceRooms> {
 
     List<ConferenceRooms> selectList(ConferenceRooms Room);
+
+    int deleteRoom(ConferenceRooms Room);
 }

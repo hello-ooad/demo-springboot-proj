@@ -36,5 +36,18 @@ public class ConferenceRoomsServiceImpl extends ServiceImpl<ConferenceRoomsMappe
                 .eq(Room.getMaxDuration()!=null,ConferenceRooms::getMaxDuration,Room.getMaxDuration());
         return mapper.selectList(queryWrapper);
     }
-
+    @Override
+    public int deleteRoom(ConferenceRooms Room){
+        QueryWrapper<ConferenceRooms> queryWrapper=new QueryWrapper<>();
+        queryWrapper.lambda().eq(Room.getRoomId()!=null,ConferenceRooms::getRoomId,Room.getRoomId())
+                .eq(Room.getDepartment()!=null,ConferenceRooms::getDepartment,Room.getDepartment())
+                .eq(Room.getRoomName()!=null,ConferenceRooms::getRoomName,Room.getRoomName())
+                .eq(Room.getType()!=null,ConferenceRooms::getType,Room.getType())
+                .eq(Room.getLocation()!=null,ConferenceRooms::getLocation,Room.getLocation())
+                .eq(Room.getDate()!=null,ConferenceRooms::getDate,Room.getDate())
+                .eq(Room.getStartTime()!=null,ConferenceRooms::getStartTime,Room.getStartTime())
+                .eq(Room.getEndTime()!=null,ConferenceRooms::getEndTime,Room.getEndTime())
+                .eq(Room.getMaxDuration()!=null,ConferenceRooms::getMaxDuration,Room.getMaxDuration());
+        return mapper.delete(queryWrapper);
+    }
 }
